@@ -100,7 +100,7 @@ const createContainer = () => {
 }
 
 const createImage = (alt, title, desktop_img, mobile_img) => {
-    mobile_img ? mobile_img = mobile_img : mobile_img = desktop_img;
+    // mobile_img ? mobile_img = mobile_img : mobile_img = desktop_img;
     const img = new Image();
     alt ? img.alt = alt : img.alt = "";
     title ? img.title = title : "";
