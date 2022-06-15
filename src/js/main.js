@@ -100,7 +100,10 @@ const createImage = (alt, title) => {
     const img = new Image();
     alt ? img.alt = alt : img.alt = "";
     title ? img.title = title : "";
-    img.src = ""
+    img.srcset = `../img/sean-o-KMn4VEeEPR8-unsplash_1_s6zmfh_c_scale\, w_480.jpg 480w,
+    ../img/sean-o-KMn4VEeEPR8-unsplash_1_s6zmfh_c_scale\,w_784.jpg 784w`
+    img.sizes=`(max-width: 1000px) 784px, 480px`
+    img.src="../img/sean-o-KMn4VEeEPR8-unsplash_1_s6zmfh_c_scale\,w_784.jpg"
 
     return img;
 }
