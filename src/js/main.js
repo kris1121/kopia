@@ -27,7 +27,7 @@ const createModal = () => {
     button_close.classList.add('modal__close');
     button_close.setAttribute('aria-label', 'Close modal');
     button_close.setAttribute('data-micromodal-close', true);
-    button_close.style.backgroundImage = "./dist/img/x-icon.png";
+    button_close.style.backgroundColor = "red";
 
     const header = document.createElement('header');
 
