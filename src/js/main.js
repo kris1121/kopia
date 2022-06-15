@@ -1,7 +1,8 @@
 
 const title = "Lorem ipsum";
 const text = "Infinitely scalable, feature-rich and cloud-native data management and protection for modern and legacy infrastructures and SaaS platforms, managed via a single app with no hardware required."
-
+const desktop_img = "./dist/img/desktop.jpg";
+const mobile_img = "./dist/img/mobile.jpg";
 
 //popup modal
 
@@ -96,14 +97,14 @@ const createContainer = () => {
     return container;  
 }
 
-const createImage = (alt, title) => {
+const createImage = (alt, title, desktop_img, mobile_img) => {
+    mobile_img ? mobile_img = mobile_img : mobile_img = desktop_img;
     const img = new Image();
     alt ? img.alt = alt : img.alt = "";
     title ? img.title = title : "";
-    img.srcset = `./dist/img/sean-o-KMn4VEeEPR8-unsplash_1_s6zmfh_c_scale\w_480.jpg 480w,
-    ./dist/img/sean-o-KMn4VEeEPR8-unsplash_1_s6zmfh_c_scale\,w_784.jpg 784w`
-    img.sizes=`(max-width: 1000px) 784px, 480px`
-    img.src="./dist/img/sean-o-KMn4VEeEPR8-unsplash_1_s6zmfh_c_scale\,w_784.jpg"
+    img.srcset = `${mobile_img} 480w, ${desktop_img} 784w,`
+    img.sizes=`(max-width: 1000px) 480px, 784px`
+    img.src=`${mobile_img}`
 
     return img;
 }
@@ -145,7 +146,7 @@ const createButton = (class_name) => {
 //@param img_alt
 //@param img_title
 
-const createSection = (class_name, title, content, img_alt, img_title) => {
+const createSection = (class_name, title, content, img_alt, img_title, desktop_img, mobile_img) => {
     const section = document.createElement("section");
     section.classList.add(class_name);
     
@@ -154,7 +155,7 @@ const createSection = (class_name, title, content, img_alt, img_title) => {
     const left_container = createContainer();
     left_container.classList.add(`${class_name}__left_container`);
    
-    const img = createImage(img_alt, img_title);
+    const img = createImage(img_alt, img_title, desktop_img, mobile_img);
 
     //create right container
 
@@ -182,7 +183,7 @@ const createSection = (class_name, title, content, img_alt, img_title) => {
     return section;
 }
 
-const module = createSection("module", title, text, "alternatywny tekst", "tytuł obrazka");
+const module = createSection("module", title, text, "alternatywny tekst", "tytuł obrazka", desktop_img, mobile_img);
 
 
 document.body.appendChild(module);
