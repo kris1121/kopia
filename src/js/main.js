@@ -100,7 +100,7 @@ const createImage = (alt, title) => {
     const img = new Image();
     alt ? img.alt = alt : img.alt = "";
     title ? img.title = title : "";
-    img.src = "./dist/img/sean-o-KMn4VEeEPR8-unsplash_1_s6zmfh_c_scale\,w_480.jpg"
+    img.src = ""
 
     return img;
 }
